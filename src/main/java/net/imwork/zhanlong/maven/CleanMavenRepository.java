@@ -12,7 +12,7 @@ public class CleanMavenRepository
     /**
      * root: 仓库根目录,此处为本地maven仓库的绝对路径
      */
-    //static String root = "D:\\java_studying\\repository";
+    //static String rootDirectory = "D:\\java_studying\\repository";
 
 //    public static void main(String[] args) {
 //        File file = new File(root);
@@ -23,12 +23,31 @@ public class CleanMavenRepository
 //            }
 //        }
 //    }
-
+    public static void clean()
+    {
+        String rootDirectory = "D:\\java_studying\\repository";
+        System.out.println("清除目录:" + rootDirectory);
+        File file = new File(rootDirectory);
+        File[] files = file.listFiles();
+        if (files != null && files.length > 0) {
+            for (File f : files) {
+                clearRepository(f);
+            }
+        }
+    }
     /**
      *
      * @param rootDirectory
      */
     public static void clean(String rootDirectory ) {
+
+        if (rootDirectory == null || rootDirectory.isEmpty())
+        {
+            return;
+        }
+        System.out.println("清除目录:" + rootDirectory);
+        rootDirectory = "d:\\repository\\" + rootDirectory;
+
         File file = new File(rootDirectory);
         File[] files = file.listFiles();
         if (files != null && files.length > 0) {
