@@ -12,10 +12,24 @@ public class CleanMavenRepository
     /**
      * root: 仓库根目录,此处为本地maven仓库的绝对路径
      */
-    static String root = "D:\\java_studying\\repository";
+    //static String root = "D:\\java_studying\\repository";
 
-    public static void main(String[] args) {
-        File file = new File(root);
+//    public static void main(String[] args) {
+//        File file = new File(root);
+//        File[] files = file.listFiles();
+//        if (files != null && files.length > 0) {
+//            for (File f : files) {
+//                clearRepository(f);
+//            }
+//        }
+//    }
+
+    /**
+     *
+     * @param rootDirectory
+     */
+    public static void clean(String rootDirectory ) {
+        File file = new File(rootDirectory);
         File[] files = file.listFiles();
         if (files != null && files.length > 0) {
             for (File f : files) {
@@ -24,7 +38,9 @@ public class CleanMavenRepository
         }
     }
 
-    public static boolean clearRepository(File file) {
+
+
+    private static boolean clearRepository(File file) {
         boolean isHaveJar = false;
         File[] files = file.listFiles();
         if (files != null && files.length > 0) {
@@ -54,7 +70,7 @@ public class CleanMavenRepository
      * 删除文件或文件夹
      * @param file 要删除的文件或文件夹
      */
-    public static void delete(File file) {
+    private static void delete(File file) {
         File[] files = file.listFiles();
         if (files != null && files.length > 0) {
             for (File aFile : files) {
