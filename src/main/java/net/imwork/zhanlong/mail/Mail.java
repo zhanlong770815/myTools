@@ -39,7 +39,6 @@ public class Mail {
 	
 	/**
 	 * 返回发件人
-	 * @return
 	 */
 	public void setFrom(String from) {
 		this.from = from;

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>net.imwork.zhanlong.naeidxvTools</groupId>
+    <groupId>com.github.naeidxvTools</groupId>
     <artifactId>naeidxvTools</artifactId>
     <version>1.5</version>
 
@@ -47,6 +47,12 @@
             <version>1.2.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>2.8.2</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
@@ -77,8 +83,82 @@
             <version>1.6.2</version>
         </dependency>
 
+
     </dependencies>
 
+    <parent>
+        <artifactId>oss-parent</artifactId>
+        <groupId>org.sonatype.oss</groupId>
+        <version>7</version>
+    </parent>
 
+    <licenses>
+        <license>
+            <name></name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <tag>master</tag>
+        <url>https://github.com/zhanlong770815/myTools.git</url>
+        <connection>scm:git:https://github.com/zhanlong770815/myTools.git</connection>
+        <developerConnection>scm:git:https://github.com/zhanlong770815/myTools.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>zhanlong</name>
+            <email>120769563@qq.com</email>
+            <organization>ZhanLong</organization>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--                <version>2.10.4</version>-->
+<!--                <configuration>-->
+<!--                    <encoding>utf-8</encoding>-->
+<!--                    <aggregate>true</aggregate>-->
+<!--                    <charset>utf-8</charset>-->
+<!--                    <docencoding>utf-8</docencoding>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>attach-javadocs</id>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>jar</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <additionalparam>-Xdoclint:none</additionalparam>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
 </project>
